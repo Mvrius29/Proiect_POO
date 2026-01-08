@@ -5,8 +5,8 @@ void Frigider::set_has_freezer(const bool &has_freezer1) {
         throw std::invalid_argument("Has freezer must be true or false.");
     has_freezer = has_freezer1;
 }
-Frigider::Frigider(const string &firm1, const string &type1, const vector<pair<pair<string,float>,int>> &model_price_year1, const bool &has_freezer1)
-    : Electrocasnice{firm1, type1, model_price_year1}  {
+Frigider::Frigider(const string &firm1, const string &type1, const string& model1, const float&price1 , const int&year1, const bool &has_freezer1)
+    : Electrocasnice{firm1, type1, model1,price1,year1}  {
     set_has_freezer(has_freezer1);
     }
 

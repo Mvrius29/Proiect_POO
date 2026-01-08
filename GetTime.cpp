@@ -44,3 +44,10 @@ string GetTime::getfulltime() {
     ss << std::put_time(&acum, "%Y-%m-%d %H:%M:%S");
     return ss.str();
 }
+
+string GetTime::getEmploymentDate(){
+    tm now = getNowStruct();
+    stringstream ss;
+    ss << std::put_time(&now, "%Y-%m-%d"); 
+    return ss.str();
+}
