@@ -1,5 +1,13 @@
 #include "Service.h"
 
+int Service::nr_rec = 0;
+
+Service::Service(){
+    read_employees("employees.txt");
+    read_electrocasnice("electrocasnice.txt");
+    read_requests("requests.txt");
+}
+
 void get_unit_and_size(const string &diagonal_size_str, float &diagonal_size, string &unit)
 {
     size_t pos = diagonal_size_str.find(' ');
@@ -46,10 +54,6 @@ void Service::read_employees(const string &filename)
                 {
                     string requests_str, request;
                     vector<string> requests;
-                    while (std::getline(new_string, request, ','))
-                    {
-                        requests.push_back(request);
-                    }
                     add_employee_rec(role, name, second_name, cnp, employment_date, city, requests);
                 }
                 else if (role == "S")
@@ -80,26 +84,37 @@ bool Service::verify_employees_existence(const string &cnp)
 }
 
 void Service::add_employee_sup(const string &role, const string &name, const string &second_name, const string &cnp, const string &employment_date, const string &city)
-{   if(!verify_employees_existence(cnp)){
-    Employees_list.push_back(std::make_unique<Supervisor>(name, second_name, cnp, employment_date, city));
-    cout << "Added supervisor with CNP: " << cnp << endl;}
-    else cout <<"You cannot add an employee who is already in service ";
+{
+    if (!verify_employees_existence(cnp))
+    {
+        Employees_list.push_back(std::make_unique<Supervisor>(name, second_name, cnp, employment_date, city));
+        cout << "Added supervisor with CNP: " << cnp << endl;
+    }
+    else
+        cout << "You cannot add an employee who is already in service ";
 }
 
 void Service::add_employee_teh(const string &role, const string &name, const string &second_name, const string &cnp, const string &employment_date, const string &city, const vector<pair<string, string>> &certifications)
 {
-    if(!verify_employees_existence(cnp)){
-    Employees_list.push_back(std::make_unique<Tehnician>(name, second_name, cnp, employment_date, city, certifications));
-    cout << "Added technician with CNP: " << cnp << endl;}
-    else cout <<"You cannot add an employee who is already in service";
+    if (!verify_employees_existence(cnp))
+    {
+        Employees_list.push_back(std::make_unique<Tehnician>(name, second_name, cnp, employment_date, city, certifications));
+        cout << "Added technician with CNP: " << cnp << endl;
+    }
+    else
+        cout << "You cannot add an employee who is already in service";
 }
 
 void Service::add_employee_rec(const string &role, const string &name, const string &second_name, const string &cnp, const string &employment_date, const string &city, const vector<string> &requests)
 {
-    if(!verify_employees_existence(cnp)){
-    Employees_list.push_back(std::make_unique<Receptionist>(name, second_name, cnp, employment_date, city, requests));
-    cout << "Added receptionist with CNP: " << cnp << endl;}
-    else cout<<"You cannot add an employee who is already in service";
+    if (!verify_employees_existence(cnp))
+    {
+        Employees_list.push_back(std::make_unique<Receptionist>(name, second_name, cnp, employment_date, city, requests));
+        cout << "Added receptionist with CNP: " << cnp << endl;
+        nr_rec++;
+    }
+    else
+        cout << "You cannot add an employee who is already in service";
 }
 
 void Service::delete_employee(const string &cnp)
@@ -109,6 +124,8 @@ void Service::delete_employee(const string &cnp)
         if ((*it)->get_CNP() == cnp)
         {
             Employees_list.erase(it);
+            if((*it) -> get_type() =="R")
+                 nr_rec --;
             return;
         }
     }
@@ -150,6 +167,7 @@ void Service::find_employee(const string &cnp)
     }
     throw std::invalid_argument("Employee with the given CNP not found.");
 }
+
 
 // Electrocasnice Management
 void Service::read_electrocasnice(const string &filename)
@@ -260,7 +278,7 @@ void Service::add_electrocasnic_and_firm(const string &type, const string &firm,
 {
     if (!verify_electrocasnic_existence(firm, type))
     {
-        Electrocasnice_list.push_back(std::make_unique<Washer>(firm, type,  model, price, year, load_capacity));
+        Electrocasnice_list.push_back(std::make_unique<Washer>(firm, type, model, price, year, load_capacity));
         cout << "Added Washer from firm: " << firm << endl;
     }
     else
@@ -269,27 +287,34 @@ void Service::add_electrocasnic_and_firm(const string &type, const string &firm,
 
 void Service::delete_firm(const string &firm, const string &type)
 {
+    int found = 0;
     for (vector<unique_ptr<Electrocasnice>>::iterator it = Electrocasnice_list.begin(); it != Electrocasnice_list.end(); ++it)
     {
         if ((*it)->get_firm() == firm && (*it)->get_type() == type)
         {
-            Electrocasnice_list.erase(it);
+            it = Electrocasnice_list.erase(it);
+            found++;
+            it--;
         }
     }
-    throw std::invalid_argument("Electrocasnic with the given firm and type not found.");
+    if (found == 0)
+        throw std::invalid_argument("Electrocasnic with the given firm and type not found.");
 }
 
-
-void Service::delete_model(const string &model,const string &type)
+void Service::delete_model(const string &model, const string &type)
 {
+    int found = 0;
     for (vector<unique_ptr<Electrocasnice>>::iterator it = Electrocasnice_list.begin(); it != Electrocasnice_list.end(); ++it)
     {
         if ((*it)->get_model() == model && (*it)->get_type() == type)
         {
-            Electrocasnice_list.erase(it);
+            it = Electrocasnice_list.erase(it);
+            found++;
+            it--;
         }
     }
-    throw std::invalid_argument("Electrocasnic with the given firm and type not found.");
+    if (found == 0)
+        throw std::invalid_argument("Electrocasnic with the given firm and type not found.");
 }
 
 void Service::show_all_electrocasnice() const
@@ -359,11 +384,6 @@ void Service::read_requests(const string &filename)
                         float diagonal_size_float;
                         string unit_str;
                         get_unit_and_size(diagonal_size, diagonal_size_float, unit_str);
-                        if (diagonal_size_float <= 0)
-                            throw invalid_argument("Diagonal size must be positive.");
-
-                        if (unit_str.empty() || (unit_str != "cm" && unit_str != "inch"))
-                            throw invalid_argument("Invalid unit value");
                         add_request_tv(stoi(complexity_str), type, firm, model, stof(price), stoi(year), diagonal_size_float, unit_str);
                     }
                     else if (type == "FR")
@@ -383,8 +403,6 @@ void Service::read_requests(const string &filename)
                     {
                         string load_capacity;
                         getline(new_string, load_capacity, ',');
-                        if (stof(load_capacity) <= 0)
-                            throw invalid_argument("Load capacity must be positive.");
                         add_request_washer(stoi(complexity_str), type, firm, model, stof(price), stoi(year), stof(load_capacity));
                     }
                 }
@@ -432,6 +450,48 @@ void Service::show_all_requests() const
         cout << '\n';
     }
 }
+
+bool Service::search_electronic_in_requests(const string &type, const string &firm, const string &model, const int &year){
+     for (vector<unique_ptr<Request>>::const_iterator it = Requests_list.begin(); it != Requests_list.end(); ++it)
+    {
+        if((*it)->get_type() == type && (*it)->get_firm() == firm && (*it)->get_model() == model && (*it)->get_year() == year)
+               return true;  
+    }
+    return false;
+}
+
+void Service::delete_request(const string &type, const string &firm, const string &model, const int &year)
+{
+    int found = 0;
+    for (vector<unique_ptr<Request>>::iterator it = Requests_list.begin(); it != Requests_list.end(); ++it)
+    {
+        if ((*it)->get_firm() == firm && (*it)->get_type() == type && (*it)->get_model()==model && (*it)->get_year() == year)
+        {
+            it = Requests_list.erase(it);
+            found++;
+            it--;
+        }
+    }
+    if (found == 0)
+        throw std::invalid_argument("Electrocasnic with the given firm and type not found.");
+}
+
+// void Service::share_requests(){
+//     sort(Employees_list.begin(),Employees_list.end(),[](const std::unique_ptr<Service_Employes>& a, const std::unique_ptr<Service_Employes>& b) {
+//         return a->get_type() < b->get_type();
+//     });
+//     vector<unique_ptr<Service_Employes>>::iterator it = Employees_list.begin();
+//     vector<unique_ptr<Request>>::const_iterator re = Requests_list.begin();
+//     while(re != Requests_list.end()){
+//       if((*it)->get_type() == "R"){
+//           Receptionist *rec_ptr =  dynamic_cast<Receptionist *>(it->get());
+//           rec_ptr->get_list().push_back((*re)->get_id_req());
+//           it++;
+//       }
+//       else it = Employees_list.begin();
+//       re++;
+//     }
+// }
 
 bool Service::verify_posibilyty_of_runing() const
 {

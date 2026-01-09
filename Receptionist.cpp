@@ -6,6 +6,7 @@ Receptionist::Receptionist(const string &name1, const string &second_name1, cons
     const vector<string> &requests1): Service_Employes(name1, second_name1, cnp, employment_date1, city1), requests{requests1} {
        index++;
        id = "R" + to_string(index);
+       type="R";
 }
 
 float Receptionist::get_salary()  {
@@ -23,4 +24,8 @@ void Receptionist::add_request(const string &request){
 void Receptionist::display_info()  {
     cout<< "Receptionist Information:\n";
     Service_Employes::display_info();
+}
+
+vector<string>& Receptionist::get_list() const{
+    return requests;
 }

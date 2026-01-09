@@ -117,4 +117,10 @@ const string &Service_Employes::get_second_name() const
     return second_name;
 }
 
+const string& Service_Employes::get_type() const{
+     return type;
+}
+
 Service_Employes::~Service_Employes() {}
+
+

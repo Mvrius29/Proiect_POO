@@ -6,6 +6,7 @@ Tehnician::Tehnician(const string &name1, const string &second_name1, const stri
     const vector<pair<string,string>> &certifications1): Service_Employes(name1, second_name1, cnp, employment_date1, city1), certifications{certifications1} {
        index++;
        id = "T" + to_string(index);
+       type='T';
 }
 
 float Tehnician::get_salary()  {

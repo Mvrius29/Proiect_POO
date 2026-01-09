@@ -67,3 +67,19 @@ const float Request::get_reparation_price() const {
     reparation_price = price * get_reparation_time();
     return reparation_price;
 }
+
+const string& Request::get_firm() const {
+    return firm;
+}
+
+const string& Request::get_type() const {
+    return type;
+}
+
+const string& Request::get_model() const{
+    return model;
+}
+
+const int& Request::get_year() const{
+    return year;
+}

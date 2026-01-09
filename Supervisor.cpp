@@ -8,6 +8,7 @@ Supervisor::Supervisor(const string &name1, const string &second_name1, const st
     : Service_Employes(name1, second_name1, cnp, employment_date1, city1) {
        index++;
        id = "S" + to_string(index);
+       type="S";
 }   
 
 float Supervisor::get_salary()  {
