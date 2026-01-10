@@ -7,6 +7,7 @@ using namespace std;
 
 class Service_Employes {
   protected:
+  string type;
   string id;
   string name;
   string second_name;
@@ -28,5 +29,6 @@ class Service_Employes {
   const string& get_CNP() const;
   const string& get_name() const;
   const string& get_second_name() const;
+  const string& get_type() const;
   
 }; 

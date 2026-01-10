@@ -35,5 +35,9 @@ class Request{
     const int get_vechime() const;
     const float get_reparation_time() const;
     const float get_reparation_price() const;
+    const string& get_firm() const ;
+    const string& get_type() const ;
+    const string& get_model() const;
+    const int & get_year() const;
     ~Request() = default;
 };

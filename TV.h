@@ -9,7 +9,7 @@ class TV : public Electrocasnice {
    void set_unit(const string &);
     public:
     TV() = default;
-    TV(const string &, const string &,const vector<pair<pair<string,float>,int>> &,const float &,const string &);
+    TV(const string &, const string &,const string&, const float& , const int&,const float &,const string &);
     void display_info() const override;
     const float get_diagonal_size() const;
 };

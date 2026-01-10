@@ -2,10 +2,34 @@
 
 int Service::nr_rec = 0;
 
-Service::Service(){
-    read_employees("employees.txt");
-    read_electrocasnice("electrocasnice.txt");
-    read_requests("requests.txt");
+Service::Service()
+{
+    fstream file;
+    file.open("./tests/Employee_raport.csv", ios::out);
+    file << "Employees reading:\n ";
+    file.close();
+
+    file.open("./tests/Electronics_raport.csv", ios::out);
+    file << "Electronics reading:\n ";
+    file.close();
+
+    file.open("./tests/Requests_raport.csv", ios::out);
+    file << "Requests reading:\n ";
+    file.close();
+    read_employees("./tests/employees.txt");
+    cout << "\n";
+    read_electrocasnice("./tests/electrocasnice.txt");
+    cout << "\n";
+    read_requests("./tests/requests.txt");
+    cout << "\n";
+    try
+    {
+        share_requests_to_rec();
+    }
+    catch (const std::invalid_argument &e)
+    {
+        cout << e.what() << "\n";
+    }
 }
 
 void get_unit_and_size(const string &diagonal_size_str, float &diagonal_size, string &unit)
@@ -21,7 +45,7 @@ void Service::read_employees(const string &filename)
     int line_nr = 0;
     try
     {
-        file.exceptions(fstream::failbit | fstream::badbit);
+        file.exceptions(fstream::badbit);
         file.open(filename, ios::in);
         string line;
 
@@ -88,10 +112,13 @@ void Service::add_employee_sup(const string &role, const string &name, const str
     if (!verify_employees_existence(cnp))
     {
         Employees_list.push_back(std::make_unique<Supervisor>(name, second_name, cnp, employment_date, city));
-        cout << "Added supervisor with CNP: " << cnp << endl;
+        fstream file;
+        file.open("./tests/Employee_raport.csv", ios::out | ios::app);
+        file << "Added supervisor with CNP: " << cnp << endl;
+        file.close();
     }
     else
-        cout << "You cannot add an employee who is already in service ";
+        throw std::invalid_argument("You cannot add an employee who is already in service ");
 }
 
 void Service::add_employee_teh(const string &role, const string &name, const string &second_name, const string &cnp, const string &employment_date, const string &city, const vector<pair<string, string>> &certifications)
@@ -99,10 +126,13 @@ void Service::add_employee_teh(const string &role, const string &name, const str
     if (!verify_employees_existence(cnp))
     {
         Employees_list.push_back(std::make_unique<Tehnician>(name, second_name, cnp, employment_date, city, certifications));
-        cout << "Added technician with CNP: " << cnp << endl;
+        fstream file;
+        file.open("./tests/Employee_raport.csv", ios::out | ios::app);
+        file << "Added technician with CNP: " << cnp << endl;
+        file.close();
     }
     else
-        cout << "You cannot add an employee who is already in service";
+        throw std::invalid_argument("You cannot add an employee who is already in service");
 }
 
 void Service::add_employee_rec(const string &role, const string &name, const string &second_name, const string &cnp, const string &employment_date, const string &city, const vector<string> &requests)
@@ -110,11 +140,14 @@ void Service::add_employee_rec(const string &role, const string &name, const str
     if (!verify_employees_existence(cnp))
     {
         Employees_list.push_back(std::make_unique<Receptionist>(name, second_name, cnp, employment_date, city, requests));
-        cout << "Added receptionist with CNP: " << cnp << endl;
+        fstream file;
+        file.open("./tests/Employee_raport.csv", ios::out | ios::app);
+        file << "Added receptionist with CNP: " << cnp << endl;
+        file.close();
         nr_rec++;
     }
     else
-        cout << "You cannot add an employee who is already in service";
+        throw std::invalid_argument("You cannot add an employee who is already in service");
 }
 
 void Service::delete_employee(const string &cnp)
@@ -123,9 +156,15 @@ void Service::delete_employee(const string &cnp)
     {
         if ((*it)->get_CNP() == cnp)
         {
-            Employees_list.erase(it);
-            if((*it) -> get_type() =="R")
-                 nr_rec --;
+            if ((*it)->get_type() == "R")
+            {
+                nr_rec--;
+                Employees_list.erase(it);
+                share_requests_to_rec();
+            }
+            else
+                Employees_list.erase(it);
+
             return;
         }
     }
@@ -168,7 +207,6 @@ void Service::find_employee(const string &cnp)
     throw std::invalid_argument("Employee with the given CNP not found.");
 }
 
-
 // Electrocasnice Management
 void Service::read_electrocasnice(const string &filename)
 {
@@ -176,7 +214,7 @@ void Service::read_electrocasnice(const string &filename)
     int line_nr = 0;
     try
     {
-        file.exceptions(fstream::failbit | fstream::badbit);
+        file.exceptions(fstream::badbit);
         file.open(filename, ios::in);
         string line;
 
@@ -211,9 +249,9 @@ void Service::read_electrocasnice(const string &filename)
                     {
                         throw invalid_argument("Invalid model format");
                     }
-                    if (has_freezer_str == "true")
+                    if (has_freezer_str == "true" || has_freezer_str == "1")
                         has_freezer = true;
-                    else if (has_freezer_str == "false")
+                    else if (has_freezer_str == "false" || has_freezer_str == "0")
                         has_freezer = false;
                     else
                         throw invalid_argument("Invalid has_freezer value");
@@ -258,20 +296,26 @@ void Service::add_electrocasnic_and_firm(const string &type, const string &firm,
     if (!verify_electrocasnic_existence(firm, type))
     {
         Electrocasnice_list.push_back(std::make_unique<TV>(firm, type, model, price, year, diagonal_size, unit));
-        cout << "Added TV from firm: " << firm << endl;
+        fstream file;
+        file.open("./tests/Electronics_raport.csv", ios::out | ios::app);
+        file << "Added TV from firm: " << firm << endl;
+        file.close();
     }
     else
-        cout << "You cannot add an existing electronic to the service. ";
+        throw std::invalid_argument("You cannot add an existing electronic to the service. ");
 }
 void Service::add_electrocasnic_and_firm(const string &type, const string &firm, const string &model, const float &price, const int &year, const bool &has_freezer)
 {
     if (!verify_electrocasnic_existence(firm, type))
     {
         Electrocasnice_list.push_back(std::make_unique<Frigider>(firm, type, model, price, year, has_freezer));
-        cout << "Added Frigider from firm: " << firm << endl;
+        fstream file;
+        file.open("./tests/Electronics_raport.csv", ios::out | ios::app);
+        file << "Added Frigider from firm: " << firm << endl;
+        file.close();
     }
     else
-        cout << "You cannot add an existing electronic to the service. ";
+        throw std::invalid_argument("You cannot add an existing electronic to the service. ");
 }
 
 void Service::add_electrocasnic_and_firm(const string &type, const string &firm, const string &model, const float &price, const int &year, const float &load_capacity)
@@ -279,10 +323,13 @@ void Service::add_electrocasnic_and_firm(const string &type, const string &firm,
     if (!verify_electrocasnic_existence(firm, type))
     {
         Electrocasnice_list.push_back(std::make_unique<Washer>(firm, type, model, price, year, load_capacity));
-        cout << "Added Washer from firm: " << firm << endl;
+        fstream file;
+        file.open("./tests/Electronics_raport.csv", ios::out | ios::app);
+        file << "Added Washer from firm: " << firm << endl;
+        file.close();
     }
     else
-        cout << "You cannot add an existing electronic to the service. ";
+        throw std::invalid_argument("You cannot add an existing electronic to the service. ");
 }
 
 void Service::delete_firm(const string &firm, const string &type)
@@ -344,7 +391,7 @@ void Service::read_requests(const string &filename)
     int line_nr = 0;
     try
     {
-        file.exceptions(fstream::failbit | fstream::badbit);
+        file.exceptions(fstream::badbit);
         file.open(filename, ios::in);
         string line;
 
@@ -391,9 +438,9 @@ void Service::read_requests(const string &filename)
                         string has_freezer;
                         getline(new_string, has_freezer, ',');
                         bool has_freezer1;
-                        if (has_freezer == "true")
+                        if (has_freezer == "true" || has_freezer == "1")
                             has_freezer1 = true;
-                        else if (has_freezer == "false")
+                        else if (has_freezer == "false" || has_freezer == "0")
                             has_freezer1 = false;
                         else
                             throw invalid_argument("Invalid has_freezer value");
@@ -422,23 +469,33 @@ void Service::read_requests(const string &filename)
 void Service::add_request_tv(const int &complexity, const string &type, const string &firm, const string &model, const float &price, const int &year, const float &diagonal_size, const string &unit)
 {
     Requests_list.push_back(std::make_unique<Request>(complexity, type, firm, model, price, year, diagonal_size, unit));
-    cout << "Added TV request for model: " << model << endl;
+    fstream file;
+    file.open("./tests/Requests_raport.csv", ios::out | ios::app);
+    file << "Added TV request for model: " << model << endl;
+    file.close();
 }
 
 void Service::add_request_frigider(const int &complexity, const string &type, const string &firm, const string &model, const float &price, const int &year, const bool &has_freezer)
 {
     Requests_list.push_back(std::make_unique<Request>(complexity, type, firm, model, price, year, has_freezer));
-    cout << "Added Frigider request for model: " << model << endl;
+    fstream file;
+    file.open("./tests/Requests_raport.csv", ios::out | ios::app);
+    file << "Added Frigider request for model: " << model << endl;
+    file.close();
 }
 
 void Service::add_request_washer(const int &complexity, const string &type, const string &firm, const string &model, const float &price, const int &year, const float &load_capacity)
 {
     Requests_list.push_back(std::make_unique<Request>(complexity, type, firm, model, price, year, load_capacity));
-    cout << "Added Washer request for model: " << model << endl;
+    fstream file;
+    file.open("./tests/Requests_raport.csv", ios::out | ios::app);
+    file << "Added Washer request for model: " << model << endl;
+    file.close();
 }
 
 void Service::show_all_requests() const
 {
+
     for (vector<unique_ptr<Request>>::const_iterator it = Requests_list.begin(); it != Requests_list.end(); ++it)
     {
         cout << "Request ID: " << (*it)->get_id_req() << '\n';
@@ -451,11 +508,12 @@ void Service::show_all_requests() const
     }
 }
 
-bool Service::search_electronic_in_requests(const string &type, const string &firm, const string &model, const int &year){
-     for (vector<unique_ptr<Request>>::const_iterator it = Requests_list.begin(); it != Requests_list.end(); ++it)
+bool Service::search_electronic_in_requests(const string &type, const string &firm, const string &model, const int &year)
+{
+    for (vector<unique_ptr<Request>>::const_iterator it = Requests_list.begin(); it != Requests_list.end(); ++it)
     {
-        if((*it)->get_type() == type && (*it)->get_firm() == firm && (*it)->get_model() == model && (*it)->get_year() == year)
-               return true;  
+        if ((*it)->get_type() == type && (*it)->get_firm() == firm && (*it)->get_model() == model && (*it)->get_year() == year)
+            return true;
     }
     return false;
 }
@@ -465,7 +523,7 @@ void Service::delete_request(const string &type, const string &firm, const strin
     int found = 0;
     for (vector<unique_ptr<Request>>::iterator it = Requests_list.begin(); it != Requests_list.end(); ++it)
     {
-        if ((*it)->get_firm() == firm && (*it)->get_type() == type && (*it)->get_model()==model && (*it)->get_year() == year)
+        if ((*it)->get_firm() == firm && (*it)->get_type() == type && (*it)->get_model() == model && (*it)->get_year() == year)
         {
             it = Requests_list.erase(it);
             found++;
@@ -476,22 +534,143 @@ void Service::delete_request(const string &type, const string &firm, const strin
         throw std::invalid_argument("Electrocasnic with the given firm and type not found.");
 }
 
-// void Service::share_requests(){
-//     sort(Employees_list.begin(),Employees_list.end(),[](const std::unique_ptr<Service_Employes>& a, const std::unique_ptr<Service_Employes>& b) {
-//         return a->get_type() < b->get_type();
-//     });
-//     vector<unique_ptr<Service_Employes>>::iterator it = Employees_list.begin();
-//     vector<unique_ptr<Request>>::const_iterator re = Requests_list.begin();
-//     while(re != Requests_list.end()){
-//       if((*it)->get_type() == "R"){
-//           Receptionist *rec_ptr =  dynamic_cast<Receptionist *>(it->get());
-//           rec_ptr->get_list().push_back((*re)->get_id_req());
-//           it++;
-//       }
-//       else it = Employees_list.begin();
-//       re++;
-//     }
-// }
+void Service::clear_requests_lists()
+{
+    sort(Employees_list.begin(), Employees_list.end(), [](const std::unique_ptr<Service_Employes> &a, const std::unique_ptr<Service_Employes> &b)
+         { return a->get_type() < b->get_type(); });
+
+    for (vector<unique_ptr<Service_Employes>>::iterator it = Employees_list.begin(); it != Employees_list.end(); ++it)
+    {
+        if ((*it)->get_type() == "R")
+        {
+            Receptionist *rec_ptr = dynamic_cast<Receptionist *>(it->get());
+            rec_ptr->clear_request();
+        }
+    }
+}
+
+void Service::share_requests_to_rec()
+{
+    clear_requests_lists();
+    vector<unique_ptr<Service_Employes>>::iterator it = Employees_list.begin();
+    vector<unique_ptr<Request>>::const_iterator re = Requests_list.begin();
+    int nr = 0;
+
+    if (nr_rec == 0)
+        throw std::invalid_argument("No receptionist found");
+
+    while (re != Requests_list.end())
+    {
+        if ((*it)->get_type() == "R")
+        {
+            nr++;
+            Receptionist *rec_ptr = dynamic_cast<Receptionist *>(it->get());
+            if (rec_ptr)
+            {
+                rec_ptr->add_request((*re)->get_id_req());
+            }
+            re++;
+            if (nr == nr_rec)
+                it = Employees_list.begin();
+            else
+                it++;
+        }
+        else
+            it = Employees_list.begin();
+    }
+}
+
+void Service::add_request_to_an_rec(const string &id)
+{
+    int min = Requests_list.size();
+    Receptionist *poz = nullptr;
+
+    for (vector<unique_ptr<Service_Employes>>::const_iterator it = Employees_list.begin(); it != Employees_list.end(); ++it)
+    {
+        if ((*it)->get_type() == "R")
+        {
+            Receptionist *rec_ptr = dynamic_cast<Receptionist *>(it->get());
+            if (rec_ptr->requests_list_size() < min)
+                min = rec_ptr->requests_list_size();
+            poz = rec_ptr;
+        }
+    }
+    if (poz != nullptr)
+    {
+        poz->add_request(id);
+    }
+    else
+        throw std::invalid_argument("No receptionist found in service");
+}
+
+int Service::get_request_list_dim() const
+{
+    int dim = Requests_list.size();
+    return dim;
+}
+
+Request *Service::get_last_request()
+{
+    return Requests_list.back().get();
+}
+
+const string &Service::get_request_id(const string &type, const string &firm, const string &model, const int &year)
+{
+    int found = 0;
+    for (vector<unique_ptr<Request>>::iterator it = Requests_list.begin(); it != Requests_list.end(); ++it)
+    {
+        if ((*it)->get_firm() == firm && (*it)->get_type() == type && (*it)->get_model() == model && (*it)->get_year() == year)
+            return (*it)->get_id_req();
+    }
+    throw std::invalid_argument("Request doesnt exit in our service");
+}
+
+void Service::delete_request_from_an_rec(const string &id)
+{
+    for (vector<unique_ptr<Electrocasnice>>::iterator it = Electrocasnice_list.begin(); it != Electrocasnice_list.end(); ++it)
+    {
+        if ((*it)->get_type() == "R")
+        {
+            Receptionist *rec_ptr = dynamic_cast<Receptionist *>(it->get());
+            if (rec_ptr->verify_request(id))
+            {
+                rec_ptr->delete_request(id);
+                return;
+            }
+        }
+    }
+}
+
+// Reports Management
+void Service::irreparable_report() const
+{
+    vector<pair<pair<string, string>, int>> irreparable_list_sorted;
+    for (map<pair<string, string>, int>::const_iterator it = Electrocasnice_irreparable.begin(); it != Electrocasnice_irreparable.end(); ++it)
+    {
+        irreparable_list_sorted.push_back(make_pair(it->first, it->second));
+    }
+
+    sort(irreparable_list_sorted.begin(), irreparable_list_sorted.end(), [](const pair<pair<string, string>, int> &a, const pair<pair<string, string>, int> &b)
+         { return a.second > b.second; });
+
+    fstream file;
+    try
+    {
+        file.exceptions(fstream::failbit | fstream::badbit);
+        file.open("./tests/irreparable_report.csv", ios::out);
+        for (vector<pair<pair<string, string>, int>>::const_iterator it = irreparable_list_sorted.begin(); it != irreparable_list_sorted.end(); ++it)
+        {
+            file << "Firm: " << it->first.first << ", Type: " << it->first.second << ", Irreparable Count: " << it->second << '\n';
+        }
+        file.close();
+    }
+    catch (const fstream::failure &e)
+    {
+        cout << "Error irreparable report: " << e.what() << endl;
+    }
+}
+
+// Simulation Management
 
 bool Service::verify_posibilyty_of_runing() const
 {
@@ -519,31 +698,116 @@ bool Service::verify_posibilyty_of_runing() const
     return false;
 }
 
-// Reports Management
-void Service::irreparable_report() const
+Tehnician *Service::get_correct_tehnician(const string &type, const string &firm)
 {
-    vector<pair<pair<string, string>, int>> irreparable_list_sorted;
-    for (map<pair<string, string>, int>::const_iterator it = Electrocasnice_irreparable.begin(); it != Electrocasnice_irreparable.end(); ++it)
+    int min_jobs = 4;
+    long int min_hours_worked = 10000000000;
+    Tehnician *poz = nullptr;
+    for (vector<unique_ptr<Service_Employes>>::const_iterator it = Employees_list.begin(); it != Employees_list.end(); ++it)
     {
-        irreparable_list_sorted.push_back(make_pair(it->first, it->second));
-    }
-
-    sort(irreparable_list_sorted.begin(), irreparable_list_sorted.end(), [](const pair<pair<string, string>, int> &a, const pair<pair<string, string>, int> &b)
-         { return a.second > b.second; });
-
-    fstream file;
-    try
-    {
-        file.exceptions(fstream::failbit | fstream::badbit);
-        file.open("irreparable_report.csv", ios::out);
-        for (vector<pair<pair<string, string>, int>>::const_iterator it = irreparable_list_sorted.begin(); it != irreparable_list_sorted.end(); ++it)
+        if ((*it)->get_type() == "T")
         {
-            file << "Firm: " << it->first.first << ", Type: " << it->first.second << ", Irreparable Count: " << it->second << '\n';
+
+            Tehnician *teh_ptr = dynamic_cast<Tehnician *>(it->get());
+            if (teh_ptr->verify_certification(type, firm))
+            {
+                if (teh_ptr->get_number_of_jobs() < 3)
+                {
+                    if (teh_ptr->get_number_of_jobs() < min_jobs)
+                    {
+                        min_jobs = teh_ptr->get_number_of_jobs();
+                        min_hours_worked = teh_ptr->get_total_hours_worked();
+                        poz = teh_ptr;
+                    }
+                    else if (teh_ptr->get_number_of_jobs() == min_jobs)
+                    {
+                        if (teh_ptr->get_total_hours_worked() < min_hours_worked)
+                        {
+                            min_hours_worked = teh_ptr->get_total_hours_worked();
+                            poz = teh_ptr;
+                        }
+                    }
+                }
+            }
         }
+    }
+    return poz;
+}
+
+bool Service::teh_working() const
+{
+    for (vector<unique_ptr<Service_Employes>>::const_iterator it = Employees_list.begin(); it != Employees_list.end(); it++)
+    {
+        if ((*it)->get_type() == "T")
+        {
+            Tehnician *teh = dynamic_cast<Tehnician *>((*it).get());
+            if (teh != nullptr && teh->get_number_of_jobs() > 0)
+                return true;
+        }
+    }
+    return false;
+}
+
+void Service::simulate()
+{
+    if (verify_posibilyty_of_runing())
+    {
+        queue<Request *> Pending_requests;
+        queue<Request *> irreparable_req;
+
+        for (vector<unique_ptr<Request>>::iterator it = Requests_list.begin(); it != Requests_list.end(); ++it)
+            Pending_requests.push((*it).get());
+
+        int timestamp = 0;
+
+        while (!Pending_requests.empty() || teh_working())
+        {
+            timestamp++;
+            fstream file;
+            file.open("./tests/Simulation.csv", ios::out | ios::app);
+
+            file << "\n--- Second " << timestamp << " ---\n";
+            file.close();
+            int current_queue_size = Pending_requests.size();
+            for (int i = 0; i < current_queue_size; ++i)
+            {
+                Request *req = Pending_requests.front();
+                Pending_requests.pop();
+                Tehnician *teh = get_correct_tehnician(req->get_type(), req->get_firm());
+
+                if (teh)
+                {
+                    fstream file;
+                    file.open("./tests/Simulation.csv", ios::out | ios::app);
+                    teh->add_to_local_queue(req);
+                    file << "[Allocation] Request " << req->get_id_req() << " add to " << teh->get_name() << "\n";
+                    file.close();
+                }
+                else
+                {
+                    irreparable_req.push(req);
+                }
+            }
+            for (vector<unique_ptr<Service_Employes>>::const_iterator it = Employees_list.begin(); it != Employees_list.end(); it++)
+            {
+                if ((*it)->get_type() == "T")
+                {
+                    Tehnician *teh = dynamic_cast<Tehnician *>((*it).get());
+                    teh->work();
+                    teh->display_status();
+                }
+            }
+        }
+        fstream file;
+        file.open("./tests/Simulation.csv", ios::out | ios::app);
+        file << "\nSimulation finished at second: " << timestamp << ".\n";
         file.close();
     }
-    catch (const fstream::failure &e)
+    else
     {
-        cout << "Error irreparable report: " << e.what() << endl;
+        fstream file;
+        file.open("./tests/Simulation.csv", ios::out | ios::app);
+        file << "Simulation cant start!";
+        file.close();
     }
 }

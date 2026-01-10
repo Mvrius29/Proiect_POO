@@ -1,7 +1,7 @@
 #include "Frigider.h"
 
 void Frigider::set_has_freezer(const bool &has_freezer1) {
-    if((has_freezer1 != true && has_freezer1 != false))
+    if((has_freezer1 != true && has_freezer1 != false) )
         throw std::invalid_argument("Has freezer must be true or false.");
     has_freezer = has_freezer1;
 }

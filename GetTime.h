@@ -16,5 +16,6 @@ public:
     static int getcurentMinute();
     static int getcurentSecond();
     static string getfulltime();
+    static string getEmploymentDate();
 
 };

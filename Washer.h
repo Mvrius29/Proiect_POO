@@ -7,7 +7,7 @@ class Washer : public Electrocasnice {
     void set_load_capacity(const float &);
     public:
     Washer() = default;
-    Washer(const string &, const string &,const vector<pair<pair<string,float>,int>> &,const float &);
+    Washer(const string &, const string &,const string &,const float &, const int &,const float &);
     void display_info() const override;
     const float get_load_capacity() const;
 };

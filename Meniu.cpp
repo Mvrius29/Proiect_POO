@@ -63,7 +63,7 @@ void main_menu(Service &service)
         cout << "1 -> Employees administration" << "\n";
         cout << "2 -> Electrocasnic administration" << "\n";
         cout << "3 -> Requests administration" << "\n";
-        cout << "4 -> Start simulation" << "\n";
+        cout << "4 -> Simulation menu" << "\n";
         cout << "5 -> EXIT" << "\n";
         cin >> option;
 
@@ -81,14 +81,15 @@ void main_menu(Service &service)
         case 4:
             if (service.verify_posibilyty_of_runing())
             {
-                // start_simulation(service);
+                simulation_menu(service);
             }
             break;
         case 5:
             cout << "Exiting... Goodbye!\n";
-            return;
+            exit(0);
         default:
             cout << "Invalid option!\n";
+            main_menu(service);
             break;
         }
     }
@@ -103,7 +104,8 @@ void employees_menu(Service &service)
     cout << "4 -> Delete employee" << "\n";
     cout << "5 -> Top 3 biggest salary of the month" << "\n";
     cout << "6 -> Back to main menu\n";
-
+    
+    cout << "\nEnter your option";
     cin >> mode;
 
     if (mode == 1)
@@ -159,6 +161,7 @@ void employees_menu(Service &service)
                 int number_of_requests;
                 vector<string> req;
                 service.add_employee_rec(type, name, second_name, cnp, employment_date, city, req);
+                service.share_requests_to_rec();
             }
             else if (type == "S")
             {
@@ -166,6 +169,7 @@ void employees_menu(Service &service)
                 read_info_employ(name, second_name, cnp, employment_date, city);
                 service.add_employee_sup(type, name, second_name, cnp, employment_date, city);
             }
+            else throw std::invalid_argument("Incorect type for employee!");
         }
         catch (const std::invalid_argument &e)
         {
@@ -180,7 +184,7 @@ void employees_menu(Service &service)
         try
         {
             service.delete_employee(searched_cnp);
-            cout<< "Emplyee with the CNP: " << searched_cnp << " deleted succesfully";
+            cout << "Employee with the CNP: " << searched_cnp << " deleted succesfully";
         }
         catch (const std::invalid_argument &e)
         {
@@ -193,7 +197,7 @@ void employees_menu(Service &service)
         try
         {
             service.run_top3_performers();
-            cout<<"Operation succeded!";
+            cout << "Operation succeded!";
         }
         catch (const std::invalid_argument &e)
         {
@@ -204,6 +208,10 @@ void employees_menu(Service &service)
     else if (mode == 6)
     {
         main_menu(service);
+    }
+    else {
+        cout <<"\nIncorect option, please try again";
+        employees_menu(service);
     }
 }
 
@@ -217,7 +225,8 @@ void electronics_menu(Service &service)
     cout << "5 -> Add firm" << "\n";
     cout << "6 -> Delete firm\n";
     cout << "7 -> Back to main menu\n";
-
+    
+    cout<<"\nEnter you option: ";
     cin >> mode;
 
     if (mode == 1)
@@ -260,6 +269,7 @@ void electronics_menu(Service &service)
                 cin >> load_capacity;
                 service.add_electrocasnic_and_firm(type, firm, model, price, year, load_capacity);
             }
+            else throw std::invalid_argument("Incorect type for electronic!");
         }
         catch (const std::invalid_argument &e)
         {
@@ -277,7 +287,7 @@ void electronics_menu(Service &service)
         try
         {
             service.delete_model(model, type);
-             cout<<"Electronic model  : " << model << " " << type << " deleted successfully";
+            cout << "Electronic model  : " << model << " " << type << " deleted successfully";
         }
         catch (const std::invalid_argument &e)
         {
@@ -295,7 +305,7 @@ void electronics_menu(Service &service)
         try
         {
             service.delete_firm(firm, type);
-            cout<<"Electronic : " << firm << " " << type << " deleted successfully";
+            cout << "Electronic : " << firm << " " << type << " deleted successfully";
         }
         catch (const std::invalid_argument &e)
         {
@@ -306,6 +316,10 @@ void electronics_menu(Service &service)
     else if (mode == 7)
     {
         main_menu(service);
+    }
+    else {
+        cout<<"\nInvalid option, please try again";
+        electronics_menu(service);
     }
 }
 
@@ -330,33 +344,39 @@ void requests_menu(Service &service)
         string type, firm, model;
         float price;
         int year, complexity;
-        cout << "\n Complexity";
+        cout << "\nComplexity: ";
         cin >> complexity;
         read_electronic_basic_info(type, firm, model, price, year);
         try
-        {if(!service.search_electronic_in_requests(type,firm,model,year)){
-            if (type == "TV")
+        {
+            if (!service.search_electronic_in_requests(type, firm, model, year))
             {
-                float diagonal_size;
-                string unit;
-                read_tv_details(diagonal_size, unit);
-                service.add_request_tv(complexity, type, firm, model, price, year, diagonal_size, unit);
+                int dim = service.get_request_list_dim();
+                if (type == "TV")
+                {
+                    float diagonal_size;
+                    string unit;
+                    read_tv_details(diagonal_size, unit);
+                    service.add_request_tv(complexity, type, firm, model, price, year, diagonal_size, unit);
+                }
+                else if (type == "FR")
+                {
+                    bool has_freezer;
+                    read_fr_details(has_freezer);
+                    service.add_request_frigider(complexity, type, firm, model, price, year, has_freezer);
+                }
+                else if (type == "MS")
+                {
+                    float load_capacity;
+                    cout << "\nLoad capacity: ";
+                    cin >> load_capacity;
+                    service.add_request_washer(complexity, type, firm, model, price, year, load_capacity);
+                }
+                if (service.get_request_list_dim() == dim + 1)
+                    service.add_request_to_an_rec(service.get_last_request()->get_id_req());
             }
-            else if (type == "FR")
-            {
-                bool has_freezer;
-                read_fr_details(has_freezer);
-                service.add_request_frigider(complexity, type, firm, model, price, year, has_freezer);
-            }
-            else if (type == "MS")
-            {
-                float load_capacity;
-                cout << "\nLoad capacity: ";
-                cin >> load_capacity;
-                service.add_request_washer(complexity, type, firm, model, price, year, load_capacity);
-            }
-        }
-        else throw std::invalid_argument("A request for this model is already existing in our system");
+            else
+                throw std::invalid_argument("A request for this model is already existing in our system");
         }
         catch (const std::invalid_argument &e)
         {
@@ -370,19 +390,68 @@ void requests_menu(Service &service)
         float price;
         int year;
         read_electronic_basic_info(type, firm, model, price, year);
-        if(!service.search_electronic_in_requests(type,firm,model,year)){
-             throw std::invalid_argument("This request doesnt exist in our system");
+        if (!service.search_electronic_in_requests(type, firm, model, year))
+        {
+            throw std::invalid_argument("This request doesnt exist in our system");
         }
-        else {
-            try{
-                service.delete_request(type,firm,model,year);
-                cout<<"Request for: " << type << " " << firm << " -> " << model << " -> " << year << " deleted succesfully";
-            }catch(const std::invalid_argument &e){
+        else
+        {
+            try
+            {
+                string id = service.get_request_id(type, firm, model, year);
+                service.delete_request_from_an_rec(service.get_request_id(type, firm, model, year));
+                service.delete_request(type, firm, model, year);
+                cout << "Request for: " << type << " " << firm << " -> " << model << " -> " << year << " deleted succesfully";
+                service.share_requests_to_rec();
+            }
+            catch (const std::invalid_argument &e)
+            {
                 cout << e.what() << "\n";
-            }  
-        } 
-         requests_menu(service);
+            }
+        }
+        requests_menu(service);
     }
-    else if(mode == 4)
-       main_menu(service);
+    else if (mode == 4)
+        main_menu(service);
+    else {
+        cout <<"Invalid option, please try again";
+        requests_menu(service);
+    }
+}
+
+void simulation_menu(Service &service){
+    int mode;
+    cout << "\n1 ->Verify posibility of running" << "\n";
+    cout << "2 -> Start simulation" << "\n";
+    cout << "3 -> Back to main menu\n";
+    
+    cout<<"\nEnter your option: " ;
+    cin >> mode;
+
+    if(mode == 1){
+        try{
+            service.verify_posibilyty_of_runing();
+            simulation_menu(service);
+        }catch(const std::invalid_argument &e){
+            cout << e.what() << "\n";
+        }
+    }
+    else 
+    if(mode == 2){
+        fstream file;
+        file.open("./tests/Simulation.csv", ios::out);
+        file << "\n-----Starting simulation-----\n";
+        file.close();
+        service.simulate();
+        
+        simulation_menu(service);
+    }
+    else if(mode == 3){
+         main_menu(service);
+    }
+    else{
+        cout << "\nIncorect option, please try again";
+        simulation_menu(service);
+    }
+    
 }
