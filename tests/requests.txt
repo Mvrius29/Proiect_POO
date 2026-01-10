@@ -1,0 +1,20 @@
+3,TV,Samsung,QLED,2500,2022,55 inch
+2,FR,Beko,NeoFrost,1800,2020,true
+4,MS,Whirlpool,6thSense,2200,2022,9
+3,TV,Sony,Bravia,3000,2021,65 cm
+2,TV,Sony,Bravia,3000,2021,65 cm
+A,TV,Sony,Bravia,3000,2021,65 cm
+2,TV,LG,OLED,-500,2023,48 inch
+2,TV,Samsung,Smart,1500,2022,43 inch
+2,TV,Samsung,Smart,1500,2027,43 inch
+3,AC,Daikin,Eco,4000,2022,12000
+1,FR,Arctic,FastFreeze,1200,2021,maybe
+FR,Samsung,FamilyHub,8000,2023,true
+TV,Sharp,Aquos,1400,2020,40 CM
+0,TV,Samsung,Oldie,500,2010,40 inch
+5,FR,Samsung,FamilyHub,8000,2023,false
+2,TV,LG,NanoCell,3000,2022,50 cm
+3,TV,Philips,Ambilight,3500,2022,50 inch
+TV,TCL,Series6,1800,2023,55 inch
+2,MS,Miele,W1,5000,2023,8.5
+4,FR,Whirlpool,TotalNoFrost,2500,2022,false
