@@ -3,189 +3,351 @@
 
 --- Second 1 ---
 [Allocation] Request C_TV_1 add to Jianu
-[Allocation] Request C_FR_1 add to Tehnic
+[Allocation] Request C_FR_1 add to Popescu
 [Allocation] Request C_TV_2 add to Valid
-[Allocation] Request C_TV_3 add to Valid
-[Allocation] Request C_TV_4 add to Popescu
-[Allocation] Request C_TV_5 add to Jianu
-Tehnician Popescu (1/3): Work on  C_TV_4 (Time left: 7s)
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (2/3): Work on  C_TV_1 (Time left: 11s) | In queue: C_TV_5 
-Tehnician Tehnic (1/3): Work on  C_FR_1 (Time left: 11s)
-Tehnician Valid (2/3): Work on  C_TV_2 (Time left: 14s) | In queue: C_TV_3 
+[Allocation] Request C_FR_2 add to Ionescu
+[Allocation] Request C_MS_2 add to Dumitru
+[Allocation] Request C_TV_4 add to Jianu
+[Allocation] Request C_FR_3 add to Tehnic
+[Allocation] Request C_TV_5 add to Valid
+[Allocation] Request C_FR_4 add to Popescu
+[Allocation] Request C_MS_4 add to Dumitru
+[Allocation] Request C_FR_5 add to Ionescu
+[Allocation] Request C_TV_7 add to Jianu
+[Allocation] Request C_TV_8 add to Popescu
+[Allocation] Request C_TV_10 add to Valid
+[Allocation] Request C_MS_7 add to Dumitru
+[Allocation] Request C_FR_9 add to Tehnic
+[Allocation] Request C_FR_11 add to Ionescu
+Tehnician Popescu (3/3): Work on  C_FR_1 (Time left: 9s) | In queue: C_FR_4 C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (3/3): Work on  C_MS_2 (Time left: 11s) | In queue: C_MS_4 C_MS_7 
+Tehnician Ionescu (3/3): Work on  C_FR_2 (Time left: 2s) | In queue: C_FR_5 C_FR_11 
+Tehnician Jianu (3/3): Work on  C_TV_1 (Time left: 11s) | In queue: C_TV_4 C_TV_7 
+Tehnician Tehnic (2/3): Work on  C_FR_3 (Time left: 19s) | In queue: C_FR_9 
+Tehnician Valid (3/3): Work on  C_TV_2 (Time left: 11s) | In queue: C_TV_5 C_TV_10 
 
 --- Second 2 ---
-Tehnician Popescu (1/3): Work on  C_TV_4 (Time left: 6s)
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (2/3): Work on  C_TV_1 (Time left: 10s) | In queue: C_TV_5 
-Tehnician Tehnic (1/3): Work on  C_FR_1 (Time left: 10s)
-Tehnician Valid (2/3): Work on  C_TV_2 (Time left: 13s) | In queue: C_TV_3 
+Tehnician Popescu (3/3): Work on  C_FR_1 (Time left: 8s) | In queue: C_FR_4 C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (3/3): Work on  C_MS_2 (Time left: 10s) | In queue: C_MS_4 C_MS_7 
+Tehnician Ionescu (3/3): Work on  C_FR_2 (Time left: 1s) | In queue: C_FR_5 C_FR_11 
+Tehnician Jianu (3/3): Work on  C_TV_1 (Time left: 10s) | In queue: C_TV_4 C_TV_7 
+Tehnician Tehnic (2/3): Work on  C_FR_3 (Time left: 18s) | In queue: C_FR_9 
+Tehnician Valid (3/3): Work on  C_TV_2 (Time left: 10s) | In queue: C_TV_5 C_TV_10 
 
 --- Second 3 ---
-Tehnician Popescu (1/3): Work on  C_TV_4 (Time left: 5s)
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (2/3): Work on  C_TV_1 (Time left: 9s) | In queue: C_TV_5 
-Tehnician Tehnic (1/3): Work on  C_FR_1 (Time left: 9s)
-Tehnician Valid (2/3): Work on  C_TV_2 (Time left: 12s) | In queue: C_TV_3 
+Tehnician Popescu (3/3): Work on  C_FR_1 (Time left: 7s) | In queue: C_FR_4 C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (3/3): Work on  C_MS_2 (Time left: 9s) | In queue: C_MS_4 C_MS_7 
+[Finished] Ionescu has finished C_FR_2
+Tehnician Ionescu (2/3): Work on  C_FR_5 (Time left: 10s) | In queue: C_FR_11 
+Tehnician Jianu (3/3): Work on  C_TV_1 (Time left: 9s) | In queue: C_TV_4 C_TV_7 
+Tehnician Tehnic (2/3): Work on  C_FR_3 (Time left: 17s) | In queue: C_FR_9 
+Tehnician Valid (3/3): Work on  C_TV_2 (Time left: 9s) | In queue: C_TV_5 C_TV_10 
 
 --- Second 4 ---
-Tehnician Popescu (1/3): Work on  C_TV_4 (Time left: 4s)
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (2/3): Work on  C_TV_1 (Time left: 8s) | In queue: C_TV_5 
-Tehnician Tehnic (1/3): Work on  C_FR_1 (Time left: 8s)
-Tehnician Valid (2/3): Work on  C_TV_2 (Time left: 11s) | In queue: C_TV_3 
+Tehnician Popescu (3/3): Work on  C_FR_1 (Time left: 6s) | In queue: C_FR_4 C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (3/3): Work on  C_MS_2 (Time left: 8s) | In queue: C_MS_4 C_MS_7 
+Tehnician Ionescu (2/3): Work on  C_FR_5 (Time left: 9s) | In queue: C_FR_11 
+Tehnician Jianu (3/3): Work on  C_TV_1 (Time left: 8s) | In queue: C_TV_4 C_TV_7 
+Tehnician Tehnic (2/3): Work on  C_FR_3 (Time left: 16s) | In queue: C_FR_9 
+Tehnician Valid (3/3): Work on  C_TV_2 (Time left: 8s) | In queue: C_TV_5 C_TV_10 
 
 --- Second 5 ---
-Tehnician Popescu (1/3): Work on  C_TV_4 (Time left: 3s)
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (2/3): Work on  C_TV_1 (Time left: 7s) | In queue: C_TV_5 
-Tehnician Tehnic (1/3): Work on  C_FR_1 (Time left: 7s)
-Tehnician Valid (2/3): Work on  C_TV_2 (Time left: 10s) | In queue: C_TV_3 
+Tehnician Popescu (3/3): Work on  C_FR_1 (Time left: 5s) | In queue: C_FR_4 C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (3/3): Work on  C_MS_2 (Time left: 7s) | In queue: C_MS_4 C_MS_7 
+Tehnician Ionescu (2/3): Work on  C_FR_5 (Time left: 8s) | In queue: C_FR_11 
+Tehnician Jianu (3/3): Work on  C_TV_1 (Time left: 7s) | In queue: C_TV_4 C_TV_7 
+Tehnician Tehnic (2/3): Work on  C_FR_3 (Time left: 15s) | In queue: C_FR_9 
+Tehnician Valid (3/3): Work on  C_TV_2 (Time left: 7s) | In queue: C_TV_5 C_TV_10 
 
 --- Second 6 ---
-Tehnician Popescu (1/3): Work on  C_TV_4 (Time left: 2s)
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (2/3): Work on  C_TV_1 (Time left: 6s) | In queue: C_TV_5 
-Tehnician Tehnic (1/3): Work on  C_FR_1 (Time left: 6s)
-Tehnician Valid (2/3): Work on  C_TV_2 (Time left: 9s) | In queue: C_TV_3 
+Tehnician Popescu (3/3): Work on  C_FR_1 (Time left: 4s) | In queue: C_FR_4 C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (3/3): Work on  C_MS_2 (Time left: 6s) | In queue: C_MS_4 C_MS_7 
+Tehnician Ionescu (2/3): Work on  C_FR_5 (Time left: 7s) | In queue: C_FR_11 
+Tehnician Jianu (3/3): Work on  C_TV_1 (Time left: 6s) | In queue: C_TV_4 C_TV_7 
+Tehnician Tehnic (2/3): Work on  C_FR_3 (Time left: 14s) | In queue: C_FR_9 
+Tehnician Valid (3/3): Work on  C_TV_2 (Time left: 6s) | In queue: C_TV_5 C_TV_10 
 
 --- Second 7 ---
-Tehnician Popescu (1/3): Work on  C_TV_4 (Time left: 1s)
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (2/3): Work on  C_TV_1 (Time left: 5s) | In queue: C_TV_5 
-Tehnician Tehnic (1/3): Work on  C_FR_1 (Time left: 5s)
-Tehnician Valid (2/3): Work on  C_TV_2 (Time left: 8s) | In queue: C_TV_3 
+Tehnician Popescu (3/3): Work on  C_FR_1 (Time left: 3s) | In queue: C_FR_4 C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (3/3): Work on  C_MS_2 (Time left: 5s) | In queue: C_MS_4 C_MS_7 
+Tehnician Ionescu (2/3): Work on  C_FR_5 (Time left: 6s) | In queue: C_FR_11 
+Tehnician Jianu (3/3): Work on  C_TV_1 (Time left: 5s) | In queue: C_TV_4 C_TV_7 
+Tehnician Tehnic (2/3): Work on  C_FR_3 (Time left: 13s) | In queue: C_FR_9 
+Tehnician Valid (3/3): Work on  C_TV_2 (Time left: 5s) | In queue: C_TV_5 C_TV_10 
 
 --- Second 8 ---
-[Finished] Popescu has finished C_TV_4
-Tehnician Popescu (0/3): No jobs ongoing
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (2/3): Work on  C_TV_1 (Time left: 4s) | In queue: C_TV_5 
-Tehnician Tehnic (1/3): Work on  C_FR_1 (Time left: 4s)
-Tehnician Valid (2/3): Work on  C_TV_2 (Time left: 7s) | In queue: C_TV_3 
+Tehnician Popescu (3/3): Work on  C_FR_1 (Time left: 2s) | In queue: C_FR_4 C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (3/3): Work on  C_MS_2 (Time left: 4s) | In queue: C_MS_4 C_MS_7 
+Tehnician Ionescu (2/3): Work on  C_FR_5 (Time left: 5s) | In queue: C_FR_11 
+Tehnician Jianu (3/3): Work on  C_TV_1 (Time left: 4s) | In queue: C_TV_4 C_TV_7 
+Tehnician Tehnic (2/3): Work on  C_FR_3 (Time left: 12s) | In queue: C_FR_9 
+Tehnician Valid (3/3): Work on  C_TV_2 (Time left: 4s) | In queue: C_TV_5 C_TV_10 
 
 --- Second 9 ---
-Tehnician Popescu (0/3): No jobs ongoing
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (2/3): Work on  C_TV_1 (Time left: 3s) | In queue: C_TV_5 
-Tehnician Tehnic (1/3): Work on  C_FR_1 (Time left: 3s)
-Tehnician Valid (2/3): Work on  C_TV_2 (Time left: 6s) | In queue: C_TV_3 
+Tehnician Popescu (3/3): Work on  C_FR_1 (Time left: 1s) | In queue: C_FR_4 C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (3/3): Work on  C_MS_2 (Time left: 3s) | In queue: C_MS_4 C_MS_7 
+Tehnician Ionescu (2/3): Work on  C_FR_5 (Time left: 4s) | In queue: C_FR_11 
+Tehnician Jianu (3/3): Work on  C_TV_1 (Time left: 3s) | In queue: C_TV_4 C_TV_7 
+Tehnician Tehnic (2/3): Work on  C_FR_3 (Time left: 11s) | In queue: C_FR_9 
+Tehnician Valid (3/3): Work on  C_TV_2 (Time left: 3s) | In queue: C_TV_5 C_TV_10 
 
 --- Second 10 ---
-Tehnician Popescu (0/3): No jobs ongoing
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (2/3): Work on  C_TV_1 (Time left: 2s) | In queue: C_TV_5 
-Tehnician Tehnic (1/3): Work on  C_FR_1 (Time left: 2s)
-Tehnician Valid (2/3): Work on  C_TV_2 (Time left: 5s) | In queue: C_TV_3 
+[Finished] Popescu has finished C_FR_1
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 24s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (3/3): Work on  C_MS_2 (Time left: 2s) | In queue: C_MS_4 C_MS_7 
+Tehnician Ionescu (2/3): Work on  C_FR_5 (Time left: 3s) | In queue: C_FR_11 
+Tehnician Jianu (3/3): Work on  C_TV_1 (Time left: 2s) | In queue: C_TV_4 C_TV_7 
+Tehnician Tehnic (2/3): Work on  C_FR_3 (Time left: 10s) | In queue: C_FR_9 
+Tehnician Valid (3/3): Work on  C_TV_2 (Time left: 2s) | In queue: C_TV_5 C_TV_10 
 
 --- Second 11 ---
-Tehnician Popescu (0/3): No jobs ongoing
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (2/3): Work on  C_TV_1 (Time left: 1s) | In queue: C_TV_5 
-Tehnician Tehnic (1/3): Work on  C_FR_1 (Time left: 1s)
-Tehnician Valid (2/3): Work on  C_TV_2 (Time left: 4s) | In queue: C_TV_3 
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 23s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (3/3): Work on  C_MS_2 (Time left: 1s) | In queue: C_MS_4 C_MS_7 
+Tehnician Ionescu (2/3): Work on  C_FR_5 (Time left: 2s) | In queue: C_FR_11 
+Tehnician Jianu (3/3): Work on  C_TV_1 (Time left: 1s) | In queue: C_TV_4 C_TV_7 
+Tehnician Tehnic (2/3): Work on  C_FR_3 (Time left: 9s) | In queue: C_FR_9 
+Tehnician Valid (3/3): Work on  C_TV_2 (Time left: 1s) | In queue: C_TV_5 C_TV_10 
 
 --- Second 12 ---
-Tehnician Popescu (0/3): No jobs ongoing
-Tehnician Dumitru (0/3): No jobs ongoing
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 22s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+[Finished] Dumitru has finished C_MS_2
+Tehnician Dumitru (2/3): Work on  C_MS_4 (Time left: 5s) | In queue: C_MS_7 
+Tehnician Ionescu (2/3): Work on  C_FR_5 (Time left: 1s) | In queue: C_FR_11 
 [Finished] Jianu has finished C_TV_1
-Tehnician Jianu (1/3): Work on  C_TV_5 (Time left: 0s)
-[Finished] Tehnic has finished C_FR_1
-Tehnician Tehnic (0/3): No jobs ongoing
-Tehnician Valid (2/3): Work on  C_TV_2 (Time left: 3s) | In queue: C_TV_3 
+Tehnician Jianu (2/3): Work on  C_TV_4 (Time left: 3s) | In queue: C_TV_7 
+Tehnician Tehnic (2/3): Work on  C_FR_3 (Time left: 8s) | In queue: C_FR_9 
+[Finished] Valid has finished C_TV_2
+Tehnician Valid (2/3): Work on  C_TV_5 (Time left: 10s) | In queue: C_TV_10 
 
 --- Second 13 ---
-Tehnician Popescu (0/3): No jobs ongoing
-Tehnician Dumitru (0/3): No jobs ongoing
-[Finished] Jianu has finished C_TV_5
-Tehnician Jianu (0/3): No jobs ongoing
-Tehnician Tehnic (0/3): No jobs ongoing
-Tehnician Valid (2/3): Work on  C_TV_2 (Time left: 2s) | In queue: C_TV_3 
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 21s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (2/3): Work on  C_MS_4 (Time left: 4s) | In queue: C_MS_7 
+[Finished] Ionescu has finished C_FR_5
+Tehnician Ionescu (1/3): Work on  C_FR_11 (Time left: 8s)
+Tehnician Jianu (2/3): Work on  C_TV_4 (Time left: 2s) | In queue: C_TV_7 
+Tehnician Tehnic (2/3): Work on  C_FR_3 (Time left: 7s) | In queue: C_FR_9 
+Tehnician Valid (2/3): Work on  C_TV_5 (Time left: 9s) | In queue: C_TV_10 
 
 --- Second 14 ---
-Tehnician Popescu (0/3): No jobs ongoing
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (0/3): No jobs ongoing
-Tehnician Tehnic (0/3): No jobs ongoing
-Tehnician Valid (2/3): Work on  C_TV_2 (Time left: 1s) | In queue: C_TV_3 
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 20s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (2/3): Work on  C_MS_4 (Time left: 3s) | In queue: C_MS_7 
+Tehnician Ionescu (1/3): Work on  C_FR_11 (Time left: 7s)
+Tehnician Jianu (2/3): Work on  C_TV_4 (Time left: 1s) | In queue: C_TV_7 
+Tehnician Tehnic (2/3): Work on  C_FR_3 (Time left: 6s) | In queue: C_FR_9 
+Tehnician Valid (2/3): Work on  C_TV_5 (Time left: 8s) | In queue: C_TV_10 
 
 --- Second 15 ---
-Tehnician Popescu (0/3): No jobs ongoing
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (0/3): No jobs ongoing
-Tehnician Tehnic (0/3): No jobs ongoing
-[Finished] Valid has finished C_TV_2
-Tehnician Valid (1/3): Work on  C_TV_3 (Time left: 10s)
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 19s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (2/3): Work on  C_MS_4 (Time left: 2s) | In queue: C_MS_7 
+Tehnician Ionescu (1/3): Work on  C_FR_11 (Time left: 6s)
+[Finished] Jianu has finished C_TV_4
+Tehnician Jianu (1/3): Work on  C_TV_7 (Time left: 16s)
+Tehnician Tehnic (2/3): Work on  C_FR_3 (Time left: 5s) | In queue: C_FR_9 
+Tehnician Valid (2/3): Work on  C_TV_5 (Time left: 7s) | In queue: C_TV_10 
 
 --- Second 16 ---
-Tehnician Popescu (0/3): No jobs ongoing
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (0/3): No jobs ongoing
-Tehnician Tehnic (0/3): No jobs ongoing
-Tehnician Valid (1/3): Work on  C_TV_3 (Time left: 9s)
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 18s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (2/3): Work on  C_MS_4 (Time left: 1s) | In queue: C_MS_7 
+Tehnician Ionescu (1/3): Work on  C_FR_11 (Time left: 5s)
+Tehnician Jianu (1/3): Work on  C_TV_7 (Time left: 15s)
+Tehnician Tehnic (2/3): Work on  C_FR_3 (Time left: 4s) | In queue: C_FR_9 
+Tehnician Valid (2/3): Work on  C_TV_5 (Time left: 6s) | In queue: C_TV_10 
 
 --- Second 17 ---
-Tehnician Popescu (0/3): No jobs ongoing
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (0/3): No jobs ongoing
-Tehnician Tehnic (0/3): No jobs ongoing
-Tehnician Valid (1/3): Work on  C_TV_3 (Time left: 8s)
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 17s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+[Finished] Dumitru has finished C_MS_4
+Tehnician Dumitru (1/3): Work on  C_MS_7 (Time left: 14s)
+Tehnician Ionescu (1/3): Work on  C_FR_11 (Time left: 4s)
+Tehnician Jianu (1/3): Work on  C_TV_7 (Time left: 14s)
+Tehnician Tehnic (2/3): Work on  C_FR_3 (Time left: 3s) | In queue: C_FR_9 
+Tehnician Valid (2/3): Work on  C_TV_5 (Time left: 5s) | In queue: C_TV_10 
 
 --- Second 18 ---
-Tehnician Popescu (0/3): No jobs ongoing
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (0/3): No jobs ongoing
-Tehnician Tehnic (0/3): No jobs ongoing
-Tehnician Valid (1/3): Work on  C_TV_3 (Time left: 7s)
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 16s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (1/3): Work on  C_MS_7 (Time left: 13s)
+Tehnician Ionescu (1/3): Work on  C_FR_11 (Time left: 3s)
+Tehnician Jianu (1/3): Work on  C_TV_7 (Time left: 13s)
+Tehnician Tehnic (2/3): Work on  C_FR_3 (Time left: 2s) | In queue: C_FR_9 
+Tehnician Valid (2/3): Work on  C_TV_5 (Time left: 4s) | In queue: C_TV_10 
 
 --- Second 19 ---
-Tehnician Popescu (0/3): No jobs ongoing
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (0/3): No jobs ongoing
-Tehnician Tehnic (0/3): No jobs ongoing
-Tehnician Valid (1/3): Work on  C_TV_3 (Time left: 6s)
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 15s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (1/3): Work on  C_MS_7 (Time left: 12s)
+Tehnician Ionescu (1/3): Work on  C_FR_11 (Time left: 2s)
+Tehnician Jianu (1/3): Work on  C_TV_7 (Time left: 12s)
+Tehnician Tehnic (2/3): Work on  C_FR_3 (Time left: 1s) | In queue: C_FR_9 
+Tehnician Valid (2/3): Work on  C_TV_5 (Time left: 3s) | In queue: C_TV_10 
 
 --- Second 20 ---
-Tehnician Popescu (0/3): No jobs ongoing
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (0/3): No jobs ongoing
-Tehnician Tehnic (0/3): No jobs ongoing
-Tehnician Valid (1/3): Work on  C_TV_3 (Time left: 5s)
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 14s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (1/3): Work on  C_MS_7 (Time left: 11s)
+Tehnician Ionescu (1/3): Work on  C_FR_11 (Time left: 1s)
+Tehnician Jianu (1/3): Work on  C_TV_7 (Time left: 11s)
+[Finished] Tehnic has finished C_FR_3
+Tehnician Tehnic (1/3): Work on  C_FR_9 (Time left: 6s)
+Tehnician Valid (2/3): Work on  C_TV_5 (Time left: 2s) | In queue: C_TV_10 
 
 --- Second 21 ---
-Tehnician Popescu (0/3): No jobs ongoing
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (0/3): No jobs ongoing
-Tehnician Tehnic (0/3): No jobs ongoing
-Tehnician Valid (1/3): Work on  C_TV_3 (Time left: 4s)
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 13s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (1/3): Work on  C_MS_7 (Time left: 10s)
+[Finished] Ionescu has finished C_FR_11
+Tehnician Ionescu (0/3): No jobs ongoing
+Tehnician Jianu (1/3): Work on  C_TV_7 (Time left: 10s)
+Tehnician Tehnic (1/3): Work on  C_FR_9 (Time left: 5s)
+Tehnician Valid (2/3): Work on  C_TV_5 (Time left: 1s) | In queue: C_TV_10 
 
 --- Second 22 ---
-Tehnician Popescu (0/3): No jobs ongoing
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (0/3): No jobs ongoing
-Tehnician Tehnic (0/3): No jobs ongoing
-Tehnician Valid (1/3): Work on  C_TV_3 (Time left: 3s)
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 12s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (1/3): Work on  C_MS_7 (Time left: 9s)
+Tehnician Ionescu (0/3): No jobs ongoing
+Tehnician Jianu (1/3): Work on  C_TV_7 (Time left: 9s)
+Tehnician Tehnic (1/3): Work on  C_FR_9 (Time left: 4s)
+[Finished] Valid has finished C_TV_5
+Tehnician Valid (1/3): Work on  C_TV_10 (Time left: 6s)
 
 --- Second 23 ---
-Tehnician Popescu (0/3): No jobs ongoing
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (0/3): No jobs ongoing
-Tehnician Tehnic (0/3): No jobs ongoing
-Tehnician Valid (1/3): Work on  C_TV_3 (Time left: 2s)
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 11s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (1/3): Work on  C_MS_7 (Time left: 8s)
+Tehnician Ionescu (0/3): No jobs ongoing
+Tehnician Jianu (1/3): Work on  C_TV_7 (Time left: 8s)
+Tehnician Tehnic (1/3): Work on  C_FR_9 (Time left: 3s)
+Tehnician Valid (1/3): Work on  C_TV_10 (Time left: 5s)
 
 --- Second 24 ---
-Tehnician Popescu (0/3): No jobs ongoing
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (0/3): No jobs ongoing
-Tehnician Tehnic (0/3): No jobs ongoing
-Tehnician Valid (1/3): Work on  C_TV_3 (Time left: 1s)
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 10s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (1/3): Work on  C_MS_7 (Time left: 7s)
+Tehnician Ionescu (0/3): No jobs ongoing
+Tehnician Jianu (1/3): Work on  C_TV_7 (Time left: 7s)
+Tehnician Tehnic (1/3): Work on  C_FR_9 (Time left: 2s)
+Tehnician Valid (1/3): Work on  C_TV_10 (Time left: 4s)
 
 --- Second 25 ---
-Tehnician Popescu (0/3): No jobs ongoing
-Tehnician Dumitru (0/3): No jobs ongoing
-Tehnician Jianu (0/3): No jobs ongoing
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 9s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (1/3): Work on  C_MS_7 (Time left: 6s)
+Tehnician Ionescu (0/3): No jobs ongoing
+Tehnician Jianu (1/3): Work on  C_TV_7 (Time left: 6s)
+Tehnician Tehnic (1/3): Work on  C_FR_9 (Time left: 1s)
+Tehnician Valid (1/3): Work on  C_TV_10 (Time left: 3s)
+
+--- Second 26 ---
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 8s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (1/3): Work on  C_MS_7 (Time left: 5s)
+Tehnician Ionescu (0/3): No jobs ongoing
+Tehnician Jianu (1/3): Work on  C_TV_7 (Time left: 5s)
+[Finished] Tehnic has finished C_FR_9
 Tehnician Tehnic (0/3): No jobs ongoing
-[Finished] Valid has finished C_TV_3
+Tehnician Valid (1/3): Work on  C_TV_10 (Time left: 2s)
+
+--- Second 27 ---
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 7s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (1/3): Work on  C_MS_7 (Time left: 4s)
+Tehnician Ionescu (0/3): No jobs ongoing
+Tehnician Jianu (1/3): Work on  C_TV_7 (Time left: 4s)
+Tehnician Tehnic (0/3): No jobs ongoing
+Tehnician Valid (1/3): Work on  C_TV_10 (Time left: 1s)
+
+--- Second 28 ---
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 6s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (1/3): Work on  C_MS_7 (Time left: 3s)
+Tehnician Ionescu (0/3): No jobs ongoing
+Tehnician Jianu (1/3): Work on  C_TV_7 (Time left: 3s)
+Tehnician Tehnic (0/3): No jobs ongoing
+[Finished] Valid has finished C_TV_10
 Tehnician Valid (0/3): No jobs ongoing
 
-Simulation finished at second: 25.
+--- Second 29 ---
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 5s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (1/3): Work on  C_MS_7 (Time left: 2s)
+Tehnician Ionescu (0/3): No jobs ongoing
+Tehnician Jianu (1/3): Work on  C_TV_7 (Time left: 2s)
+Tehnician Tehnic (0/3): No jobs ongoing
+Tehnician Valid (0/3): No jobs ongoing
+
+--- Second 30 ---
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 4s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (1/3): Work on  C_MS_7 (Time left: 1s)
+Tehnician Ionescu (0/3): No jobs ongoing
+Tehnician Jianu (1/3): Work on  C_TV_7 (Time left: 1s)
+Tehnician Tehnic (0/3): No jobs ongoing
+Tehnician Valid (0/3): No jobs ongoing
+
+--- Second 31 ---
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 3s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+[Finished] Dumitru has finished C_MS_7
+Tehnician Dumitru (0/3): No jobs ongoing
+Tehnician Ionescu (0/3): No jobs ongoing
+[Finished] Jianu has finished C_TV_7
+Tehnician Jianu (0/3): No jobs ongoing
+Tehnician Tehnic (0/3): No jobs ongoing
+Tehnician Valid (0/3): No jobs ongoing
+
+--- Second 32 ---
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 2s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (0/3): No jobs ongoing
+Tehnician Ionescu (0/3): No jobs ongoing
+Tehnician Jianu (0/3): No jobs ongoing
+Tehnician Tehnic (0/3): No jobs ongoing
+Tehnician Valid (0/3): No jobs ongoing
+
+--- Second 33 ---
+Tehnician Popescu (2/3): Work on  C_FR_4 (Time left: 1s) | In queue: C_TV_8 
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (0/3): No jobs ongoing
+Tehnician Ionescu (0/3): No jobs ongoing
+Tehnician Jianu (0/3): No jobs ongoing
+Tehnician Tehnic (0/3): No jobs ongoing
+Tehnician Valid (0/3): No jobs ongoing
+
+--- Second 34 ---
+[Finished] Popescu has finished C_FR_4
+Tehnician Popescu (1/3): Work on  C_TV_8 (Time left: 0s)
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (0/3): No jobs ongoing
+Tehnician Ionescu (0/3): No jobs ongoing
+Tehnician Jianu (0/3): No jobs ongoing
+Tehnician Tehnic (0/3): No jobs ongoing
+Tehnician Valid (0/3): No jobs ongoing
+
+--- Second 35 ---
+[Finished] Popescu has finished C_TV_8
+Tehnician Popescu (0/3): No jobs ongoing
+Tehnician Vasile (0/3): No jobs ongoing
+Tehnician Dumitru (0/3): No jobs ongoing
+Tehnician Ionescu (0/3): No jobs ongoing
+Tehnician Jianu (0/3): No jobs ongoing
+Tehnician Tehnic (0/3): No jobs ongoing
+Tehnician Valid (0/3): No jobs ongoing
+
+Simulation finished at second: 35.

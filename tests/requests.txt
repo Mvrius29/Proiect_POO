@@ -1,20 +1,60 @@
-3,TV,Samsung,QLED,2500,2022,55 inch
-2,FR,Beko,NeoFrost,1800,2020,true
-4,MS,Whirlpool,6thSense,2200,2022,9
-3,TV,Sony,Bravia,3000,2021,65 cm
-2,TV,Sony,Bravia,3000,2021,65 cm
+3,TV,Samsung,Crystal,2100,2022,50 inch
+2,FR,Arctic,Cooler,1500,2021,true
+4,MS,Indesit,EcoTime,1400,2020,7
+3,TV,Sony,Bravia,4000,2022,55 inch
+1,FR,Beko,HarvestFresh,2200,2023,true
 A,TV,Sony,Bravia,3000,2021,65 cm
 2,TV,LG,OLED,-500,2023,48 inch
-2,TV,Samsung,Smart,1500,2022,43 inch
 2,TV,Samsung,Smart,1500,2027,43 inch
 3,AC,Daikin,Eco,4000,2022,12000
 1,FR,Arctic,FastFreeze,1200,2021,maybe
-FR,Samsung,FamilyHub,8000,2023,true
+2,TV,Philips,OLED,5500,2023,65 inch
+4,MS,Whirlpool,FreshCare,1900,2021,8
+3,TV,LG,UHD,2800,2022,43 inch
+2,MS,Candy,Smart,1200,2020,6
+1,TV,Samsung,NeoQLED,7000,2023,75 inch
+-1,MS,Miele,W1,5000,2023,8.5
+3,TV,Tesla,ModelX,1000,2022,40 inch
+5,FR,Beko,EverFresh,2600,2022,false
+3,MS,Indesit,Moon,1600,2019,9
+2,TV,Sony,X80J,3500,2021,50 inch
+9,MS,Bosch,Maxx,2000,2022,7
+2,FR,Gorenje,Retro,3500,2019,nu-stiu
+4,FR,Arctic,GardenFresh,1300,2020,true
+3,TV,Philips,TheOne,3200,2022,58 inch
+2,MS,Whirlpool,SupremeCare,2500,2022,10
+3,TV,LG,NanoCell,3100,2022,50 cm
+1,MS,Candy,RapidO,1500,2021,7
+2,FR,Beko,ActiveFresh,2400,2021,true
+4,TV,Samsung,Frame,4500,2022,55 inch
+3,MS,Indesit,Innex,1100,2018,6
 TV,Sharp,Aquos,1400,2020,40 CM
 0,TV,Samsung,Oldie,500,2010,40 inch
 5,FR,Samsung,FamilyHub,8000,2023,false
-2,TV,LG,NanoCell,3000,2022,50 cm
+2,TV,LG,NanoCell,3000,1850,50 cm
 3,TV,Philips,Ambilight,3500,2022,50 inch
-TV,TCL,Series6,1800,2023,55 inch
 2,MS,Miele,W1,5000,2023,8.5
 4,FR,Whirlpool,TotalNoFrost,2500,2022,false
+2,TV,Sony,MasterSeries,9000,2023,65 inch
+1,FR,Arctic,FullFresh,1700,2022,false
+3,TV,Philips,Ambilight,3800,2022,55 inch
+4,MS,Whirlpool,Zen,2700,2020,9
+5,TV,LG,QNED,4200,2023,55 inch
+2,MS,Candy,GrandO,1300,2019,8
+1,FR,Beko,NeoFrost,1900,2020,true
+3,TV,Samsung,Lifestyle,5000,2023,43 inch
+X,MS,Samsung,EcoBubble,2300,2022,9
+2,TV,Hisense,Roku,1200,2022,43 inch
+2,FR,Beko,Missing,2000,2022,
+4,MS,Indesit,MyTime,1250,2021,7
+2,TV,Sony,Cinema,6000,2022,75 inch
+3,FR,Arctic,Eco,1100,2019,true
+2,TV,Philips,LED,2000,2021,43 inch
+1,MS,Whirlpool,SixthSense,2300,2022,8
+4,TV,LG,Nano,2900,2021,50 inch
+3,MS,Candy,GrandoVita,1400,2020,9
+2,FR,Beko,MultiFlow,2100,2022,false
+1,TV,Samsung,QLED,3300,2022,65 inch
+5,MS,Indesit,Standard,1000,2017,5
+2,TV,LG,UHDThinQ,2600,2022,ERROR
+4,TV,Samsung,TU8000,2100,2020,55 inch
